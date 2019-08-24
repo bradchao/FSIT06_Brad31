@@ -50,6 +50,16 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
     }
 
+    public void mytest(View view) {
+        StringBuffer sb = new StringBuffer();
+        for (int i=0; i<members.size(); i++){
+            if (members.get(i).isVIP()){
+                sb.append(" " + i);
+            }
+        }
+        Log.v("brad", sb.toString());
+    }
+
     private class MyAdapter extends BaseAdapter {
         private LayoutInflater inflater;
 
