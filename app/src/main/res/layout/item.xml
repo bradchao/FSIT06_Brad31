@@ -7,6 +7,7 @@
     >
 
     <ImageView
+        android:id="@+id/item_img"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
@@ -19,6 +20,7 @@
         android:orientation="vertical"
         >
         <TextView
+            android:id="@+id/item_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="24sp"
@@ -30,12 +32,14 @@
             android:orientation="horizontal"
             >
             <Button
+                android:id="@+id/item_test1"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="test1"
                 />
             <Button
+                android:id="@+id/item_test2"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
