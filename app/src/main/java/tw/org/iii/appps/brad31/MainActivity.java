@@ -77,6 +77,10 @@ public class MainActivity extends AppCompatActivity {
             Button test1 = itemView.findViewById(R.id.item_test1);
             Button test2 = itemView.findViewById(R.id.item_test2);
 
+            title.setText(members.get(i).getTitle());
+            img.setImageResource(imgs[members.get(i).getIcon()]);
+
+
             return itemView;
         }
     }
