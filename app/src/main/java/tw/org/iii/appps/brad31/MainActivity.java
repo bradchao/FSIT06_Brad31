@@ -10,8 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -78,9 +80,18 @@ public class MainActivity extends AppCompatActivity {
             ImageView img = itemView.findViewById(R.id.item_img);
             Button test1 = itemView.findViewById(R.id.item_test1);
             Button test2 = itemView.findViewById(R.id.item_test2);
+            Switch isVIP = itemView.findViewById(R.id.item_switch);
 
             title.setText(members.get(i).getTitle());
             img.setImageResource(imgs[members.get(i).getIcon()]);
+
+            isVIP.setChecked(members.get(i).isVIP());
+            isVIP.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    members.get(i).setVIP(b);
+                }
+            });
 
             //final int ii = i;
             test1.setOnClickListener(new View.OnClickListener() {
