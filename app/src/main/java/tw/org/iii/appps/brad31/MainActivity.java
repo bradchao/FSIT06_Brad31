@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.LinkedList;
 
@@ -50,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
         private LayoutInflater inflater;
 
         public MyAdapter(){
-            inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            //inflater = getLayoutInflater();
+            //inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            inflater = getLayoutInflater();
         }
         @Override
         public int getCount() {
@@ -69,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
+        public View getView(final int i, View view, ViewGroup viewGroup) {
             View itemView = inflater.inflate(R.layout.item,viewGroup,false );
 
             TextView title = itemView.findViewById(R.id.item_title);
@@ -79,6 +81,16 @@ public class MainActivity extends AppCompatActivity {
 
             title.setText(members.get(i).getTitle());
             img.setImageResource(imgs[members.get(i).getIcon()]);
+
+            //final int ii = i;
+            test1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Log.v("brad", "i = " + i);
+                    Toast.makeText(MainActivity.this, members.get(i).getTitle(),
+                            Toast.LENGTH_SHORT).show();
+                }
+            });
 
 
             return itemView;
